@@ -50,6 +50,8 @@ def ask_commands():
             print_favourites(phone_book_01)
         elif command == 's':
             search_by_name(phone_book_01)
+        else:
+            print('Команда введена неверно.')
 
 
 if __name__ == '__main__':
