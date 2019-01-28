@@ -6,23 +6,24 @@ class Contact:
         self.telephone = telephone
         self.additional = args
         self.favourite = favourite
+        self.more = kwargs
         if self.favourite is False:
             self.favourite_status = 'нет'
         else:
             self.favourite_status = 'да'
+
+    def __str__(self):
         self.printable = str(
             'Имя: ' + self.name + '\n' +
             'Фамилия: ' + self.surname + '\n' +
             'Телефон: ' + self.telephone + '\n' +
             'В избранных: ' + self.favourite_status + '\n'
         )
-        if args:
-            for additional_number in args:
+        if self.additional:
+            for additional_number in self.additional:
                 self.printable += str('Дополнительный номер: ' + additional_number + '\n')
-        if kwargs:
+        if self.more:
             self.printable += str('Дополнительная информация: ' + '\n')
-            for key in kwargs.keys():
-                self.printable += str('\t\t' + key + ': ' + kwargs[key] + '\n')
-
-    def __str__(self):
+            for key in self.more.keys():
+                self.printable += str('\t\t' + key + ': ' + self.more[key] + '\n')
         return self.printable
